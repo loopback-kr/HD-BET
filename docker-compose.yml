@@ -17,7 +17,7 @@ services:
           devices:
           - driver: nvidia
             capabilities: [gpu]
-            count: 1
+            count: all
             # device_ids: ['0']
     volumes:
       - ${PWD}:/workspace
