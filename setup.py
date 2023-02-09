@@ -11,7 +11,6 @@ setup(name='HD_BET',
       zip_safe=False,
       install_requires=[
       'numpy',
-      'torch>=0.4.1',
       'scikit-image',
       'SimpleITK'
       ],
