@@ -19,10 +19,9 @@ old_label_paths = sorted(glob(join(old_label_dir, '*.nii.gz')))
 
 
 def align_label_after_skullstrip(src_path, msk_path, dst_path):
-    old = nib.load(old_label_paths[0])
     src = nib.load(src_path)
-    msk = nib.load(src_path)
-    aligned_lbl = np.logical_and(src.get_fdata(), msk.get_fdata())
+    msk = nib.load(msk_path)
+    aligned_lbl = np.multiply(src.get_fdata(), msk.get_fdata())
     aligned = nib.Nifti1Image(aligned_lbl, header=src.header, affine=src.affine) 
     nib.save(aligned, dst_path)
 
